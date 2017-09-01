@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // API for google Map API
-        GMSServices.provideAPIKey("AIzaSyBtcoHpJX9eIgL6gdrW7UM39EQeQt0OYzc")
+        // API for google Map API 1
+      //  GMSServices.provideAPIKey("AIzaSyBtcoHpJX9eIgL6gdrW7UM39EQeQt0OYzc")
+        GMSServices.provideAPIKey("AIzaSyAA2VJCs0tRqC7oXTC2lBM_YEEAaba8mYc")
         // API for google Places API
-        GMSPlacesClient.provideAPIKey("AIzaSyBtcoHpJX9eIgL6gdrW7UM39EQeQt0OYzc")
+      //  GMSPlacesClient.provideAPIKey("AIzaSyBtcoHpJX9eIgL6gdrW7UM39EQeQt0OYzc")
         return true
     }
 

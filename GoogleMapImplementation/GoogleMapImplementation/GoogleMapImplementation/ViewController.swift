@@ -9,10 +9,9 @@
 import UIKit
 import GoogleMaps
 import  CoreLocation
-class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate { //
+class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate { //
     
     @IBOutlet weak var myMapView: GMSMapView!
-    @IBOutlet weak var hadderView: UIView!
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     var currentLocation: CLLocation?
@@ -31,7 +30,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     // OutLet Functions
     @IBAction func didTapShareButton(_ sender: UIButton) {
-        
+     //   sendEmai()
+    takeAPhoto()
     }
     @IBAction func didTapCurrentLocationButton(_ sender: UIButton) {
         switchButtonAlphaValue()
@@ -67,7 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         }
     }
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("Tapped the marker name: \(marker.title!)")
+       // print("Tapped the marker name: \(marker.title!)")
         return true
     }
     func creatLocationMarker()  {
@@ -82,6 +82,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)   
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            // Invoke Show Email Controller
+            sendEmai(selectedImage: pickedImage)
+        }else {
+            
+        }
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userLocation = locations.first {
             self.currentLocation = userLocation
@@ -90,5 +102,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             didTapCurrentLocationButton(currentLocationButton)
         }
         locationManager.stopUpdatingLocation()
+    }
+    func takeAPhoto()  {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
 }

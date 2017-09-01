@@ -152,7 +152,6 @@
                     </view>
                     <connections>
                         <outlet property="currentLocationButton" destination="YTW-Nn-Kio" id="9nG-ty-BNZ"/>
-                        <outlet property="hadderView" destination="84Q-r6-d9J" id="Dp3-z9-Vdb"/>
                         <outlet property="myMapView" destination="dFb-TY-jKt" id="hTg-CM-Krb"/>
                         <outlet property="shareButton" destination="J4u-lx-1Kg" id="3G3-i6-iVX"/>
                     </connections>

@@ -18,21 +18,23 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow Location of User</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>For Map Use</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>For Map Use</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow Location of User</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow User To Take Photo</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

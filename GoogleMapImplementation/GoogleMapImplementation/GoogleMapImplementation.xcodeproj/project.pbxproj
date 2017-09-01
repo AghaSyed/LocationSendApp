@@ -12,6 +12,7 @@
 		4136ACE21F58008A007F8057 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4136ACE01F58008A007F8057 /* Main.storyboard */; };
 		4136ACE41F58008A007F8057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4136ACE31F58008A007F8057 /* Assets.xcassets */; };
 		4136ACE71F58008A007F8057 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4136ACE51F58008A007F8057 /* LaunchScreen.storyboard */; };
+		526974361F59CA6800D25FCB /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526974351F59CA6800D25FCB /* SendLocation.swift */; };
 		F6C85220A90F0E9907C6B4C1 /* Pods_GoogleMapImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9826D021D26CA306A5C17858 /* Pods_GoogleMapImplementation.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		4136ACE31F58008A007F8057 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4136ACE61F58008A007F8057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4136ACE81F58008A007F8057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		526974351F59CA6800D25FCB /* SendLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLocation.swift; sourceTree = "<group>"; };
 		9826D021D26CA306A5C17858 /* Pods_GoogleMapImplementation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapImplementation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC63F5350CE10F85063E869 /* Pods-GoogleMapImplementation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapImplementation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapImplementation/Pods-GoogleMapImplementation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				4136ACDC1F580089007F8057 /* AppDelegate.swift */,
+				526974351F59CA6800D25FCB /* SendLocation.swift */,
 				4136ACDE1F58008A007F8057 /* ViewController.swift */,
 				4136ACE01F58008A007F8057 /* Main.storyboard */,
 				4136ACE31F58008A007F8057 /* Assets.xcassets */,
@@ -123,6 +126,7 @@
 				TargetAttributes = {
 					4136ACD81F580089007F8057 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = H5GC64F34R;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -218,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526974361F59CA6800D25FCB /* SendLocation.swift in Sources */,
 				4136ACDF1F58008A007F8057 /* ViewController.swift in Sources */,
 				4136ACDD1F58008A007F8057 /* AppDelegate.swift in Sources */,
 			);
@@ -343,10 +348,11 @@
 			baseConfigurationReference = 9FC63F5350CE10F85063E869 /* Pods-GoogleMapImplementation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H5GC64F34R;
 				INFOPLIST_FILE = GoogleMapImplementation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.devclan.GoogleMapImplementation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.farinazo.heere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -357,10 +363,11 @@
 			baseConfigurationReference = 34C82C20FE8C1E8A248847A0 /* Pods-GoogleMapImplementation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H5GC64F34R;
 				INFOPLIST_FILE = GoogleMapImplementation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.devclan.GoogleMapImplementation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.farinazo.heere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
