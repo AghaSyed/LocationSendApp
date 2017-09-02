@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 import MessageUI
 extension ViewController: MFMailComposeViewControllerDelegate {
+    
     func sendEmai(selectedImage: UIImage) {
         if let imageData = UIImagePNGRepresentation(selectedImage) {
             let mailComposeViewController = configuredMailComposeViewController(imageData: imageData)
             if MFMailComposeViewController.canSendMail() {
                 self.present(mailComposeViewController, animated: true, completion: nil)
+                setButtonAlphaValue()
             }
         }else {
            AlertViewController.showSendMailErrorAlert(self)
@@ -22,12 +24,14 @@ extension ViewController: MFMailComposeViewControllerDelegate {
     }
     
     func configuredMailComposeViewController(imageData: Data) -> MFMailComposeViewController {
+       // set Email Data
+        emailData = EMail(reciverEmail: "syedhasnain.hussaini@gmail.com", emailSubject: "Send Location", emailBody: "\(LocationManager.shared.currentLocation!)", emailAttachment: imageData, attachmentTitle: "User Image")
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["someone@somewhere.com"])
-        mailComposerVC.setSubject("User Location")
-        mailComposerVC.setMessageBody("Location: \(String(describing: LocationManager.shared.currentLocation!))", isHTML: false)
-        mailComposerVC.addAttachmentData(imageData, mimeType: "image/png", fileName: "User Location Attachment")
+        mailComposerVC.setToRecipients([(emailData.reciverEmail)])
+        mailComposerVC.setSubject((emailData.emailSubject))
+        mailComposerVC.setMessageBody("Location: \(String(describing: emailData.emailBody)))", isHTML: false)
+        mailComposerVC.addAttachmentData((emailData.emailAttachment), mimeType: "image/png", fileName: (emailData.attachmentTitle))
         return mailComposerVC
     }
  /*

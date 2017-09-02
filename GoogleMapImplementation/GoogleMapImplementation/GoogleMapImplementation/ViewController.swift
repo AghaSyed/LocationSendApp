@@ -8,12 +8,13 @@
 
 import UIKit
 import GoogleMaps
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate { // , CLLocationManagerDelegate, GMSMapViewDelegate
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate { 
     
     @IBOutlet weak var myMapView: GMSMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     var isButtonPressed = false
+    var emailData: EMail!
     override func viewDidLoad() {
         super.viewDidLoad()
         LocationManager.shared.setMapBaseLocation(myMapView)
@@ -26,7 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     // OutLet Functions
     @IBAction func didTapShareButton(_ sender: UIButton) {
-        takeAPhoto()
+        openCameraToTakePicture()
     }
     @IBAction func didTapCurrentLocationButton(_ sender: UIButton) {
         switchButtonAlphaValue()
@@ -61,7 +62,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }
     }
-    func takeAPhoto()  {
+    func openCameraToTakePicture()  {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -71,42 +72,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 }
-// coomented code 
-
-/*   func setMapBaseLocation()  {
- // Create a GMSCameraPosition that tells the map to display the coordinate and  zoom level
- let camera = GMSCameraPosition.camera(withLatitude: 30.3753, longitude: 69.3451, zoom: 6.0)
- myMapView.camera = camera
- myMapView.delegate = self
- myMapView.isMyLocationEnabled = true
- if let mylocation = myMapView.myLocation {
- print("User's location: \(mylocation)")
- } else {
- print("User's location is unknown")
- }
- }
- func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
- // print("Tapped the marker name: \(marker.title!)")
- return true
- }
- func creatLocationMarker()  {
- let marker = GMSMarker()
- marker.position = CLLocationCoordinate2D(latitude: (currentLocation?.coordinate.latitude)!, longitude: (currentLocation?.coordinate.longitude)!)
- marker.map = myMapView
- //        marker.icon = icon
- }
- func initializeTheLocationManager() {
- locationManager.delegate = self
- locationManager.requestWhenInUseAuthorization()
- locationManager.desiredAccuracy = kCLLocationAccuracyBest
- locationManager.startUpdatingLocation()
- }
- func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
- if let userLocation = locations.first {
- LocationManager.shared.currentLocation = userLocation
- }
- if self.isButtonPressed {
- didTapCurrentLocationButton(currentLocationButton)
- }
- LocationManager.shared.stopUpdatingLocation()
- }*/
