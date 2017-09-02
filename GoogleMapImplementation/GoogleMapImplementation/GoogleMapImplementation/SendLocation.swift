@@ -17,7 +17,7 @@ extension ViewController: MFMailComposeViewControllerDelegate {
                 self.present(mailComposeViewController, animated: true, completion: nil)
             }
         }else {
-            showSendMailErrorAlert()
+           AlertViewController.showSendMailErrorAlert(self)
         }
     }
     
@@ -26,11 +26,11 @@ extension ViewController: MFMailComposeViewControllerDelegate {
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients(["someone@somewhere.com"])
         mailComposerVC.setSubject("User Location")
-        mailComposerVC.setMessageBody("Location: \(String(describing: currentLocation))", isHTML: false)
+        mailComposerVC.setMessageBody("Location: \(String(describing: LocationManager.shared.currentLocation!))", isHTML: false)
         mailComposerVC.addAttachmentData(imageData, mimeType: "image/png", fileName: "User Location Attachment")
         return mailComposerVC
     }
-    
+ /*
     func showSendMailErrorAlert() {
         let myalert = UIAlertController(title: "Could Not Send Email", message: "You have not attached any image", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -40,7 +40,7 @@ extension ViewController: MFMailComposeViewControllerDelegate {
         
         self.present(myalert, animated: true)
     }
-    
+    */
     // MARK: MFMailComposeViewControllerDelegate Method
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)

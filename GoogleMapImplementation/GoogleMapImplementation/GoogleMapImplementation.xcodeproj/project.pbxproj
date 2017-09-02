@@ -13,6 +13,8 @@
 		4136ACE41F58008A007F8057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4136ACE31F58008A007F8057 /* Assets.xcassets */; };
 		4136ACE71F58008A007F8057 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4136ACE51F58008A007F8057 /* LaunchScreen.storyboard */; };
 		526974361F59CA6800D25FCB /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526974351F59CA6800D25FCB /* SendLocation.swift */; };
+		526974391F5A397F00D25FCB /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526974381F5A397F00D25FCB /* AlertViewController.swift */; };
+		5269743F1F5A738600D25FCB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269743E1F5A738600D25FCB /* LocationManager.swift */; };
 		F6C85220A90F0E9907C6B4C1 /* Pods_GoogleMapImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9826D021D26CA306A5C17858 /* Pods_GoogleMapImplementation.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		4136ACE61F58008A007F8057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4136ACE81F58008A007F8057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526974351F59CA6800D25FCB /* SendLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLocation.swift; sourceTree = "<group>"; };
+		526974381F5A397F00D25FCB /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		5269743E1F5A738600D25FCB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9826D021D26CA306A5C17858 /* Pods_GoogleMapImplementation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapImplementation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC63F5350CE10F85063E869 /* Pods-GoogleMapImplementation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapImplementation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapImplementation/Pods-GoogleMapImplementation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,15 +76,41 @@
 		4136ACDB1F580089007F8057 /* GoogleMapImplementation */ = {
 			isa = PBXGroup;
 			children = (
+				526974401F5A83A500D25FCB /* MainViewController */,
+				5269743D1F5A735D00D25FCB /* Location Mananger Class */,
+				526974371F5A38A400D25FCB /* AlertView */,
 				4136ACDC1F580089007F8057 /* AppDelegate.swift */,
 				526974351F59CA6800D25FCB /* SendLocation.swift */,
-				4136ACDE1F58008A007F8057 /* ViewController.swift */,
 				4136ACE01F58008A007F8057 /* Main.storyboard */,
 				4136ACE31F58008A007F8057 /* Assets.xcassets */,
 				4136ACE51F58008A007F8057 /* LaunchScreen.storyboard */,
 				4136ACE81F58008A007F8057 /* Info.plist */,
 			);
 			path = GoogleMapImplementation;
+			sourceTree = "<group>";
+		};
+		526974371F5A38A400D25FCB /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				526974381F5A397F00D25FCB /* AlertViewController.swift */,
+			);
+			name = AlertView;
+			sourceTree = "<group>";
+		};
+		5269743D1F5A735D00D25FCB /* Location Mananger Class */ = {
+			isa = PBXGroup;
+			children = (
+				5269743E1F5A738600D25FCB /* LocationManager.swift */,
+			);
+			name = "Location Mananger Class";
+			sourceTree = "<group>";
+		};
+		526974401F5A83A500D25FCB /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4136ACDE1F58008A007F8057 /* ViewController.swift */,
+			);
+			name = MainViewController;
 			sourceTree = "<group>";
 		};
 		C58AE8FF2401A49F99FA4368 /* Frameworks */ = {
@@ -224,7 +254,9 @@
 			files = (
 				526974361F59CA6800D25FCB /* SendLocation.swift in Sources */,
 				4136ACDF1F58008A007F8057 /* ViewController.swift in Sources */,
+				5269743F1F5A738600D25FCB /* LocationManager.swift in Sources */,
 				4136ACDD1F58008A007F8057 /* AppDelegate.swift in Sources */,
+				526974391F5A397F00D25FCB /* AlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
