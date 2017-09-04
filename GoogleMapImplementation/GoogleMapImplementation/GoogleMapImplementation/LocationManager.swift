@@ -2,7 +2,7 @@
 //  LocationManager.swift
 //  GoogleMapImplementation
 //
-//  Created by Macbook Pro on 02/09/2017.
+//  Created by Syed Hasnain on 02/09/2017.
 //  Copyright © 2017 Devclan. All rights reserved.
 //
 
@@ -12,6 +12,7 @@ import GoogleMaps
 class LocationManager: NSObject, CLLocationManagerDelegate,  GMSMapViewDelegate{
     // Make it singelton class
     static let shared = LocationManager()
+    var baseUrl = "https://www.google.com/maps/place/"
     var currentLocation: CLLocation?
     var locationManager = CLLocationManager   ()
     func startUpdatingLocation() {
@@ -54,5 +55,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate,  GMSMapViewDelegate{
         }
         locationManager.stopUpdatingLocation()
     }
-
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if let country = placemarks?.first?.country,
+                let city = placemarks?.first?.locality {
+                completion(country, city)
+            }
+        }
+    }
 }

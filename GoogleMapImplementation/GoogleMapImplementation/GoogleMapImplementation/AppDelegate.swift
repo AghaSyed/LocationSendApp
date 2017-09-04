@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  GoogleMapImplementation
 //
-//  Created by Rashdan Natiq on 31/08/2017.
+//  Created by Syed Hasnain on 31/08/2017.
 //  Copyright © 2017 Devclan. All rights reserved.
 //
 

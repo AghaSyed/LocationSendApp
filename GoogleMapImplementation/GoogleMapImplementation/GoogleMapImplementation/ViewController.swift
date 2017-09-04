@@ -2,53 +2,71 @@
 //  ViewController.swift
 //  GoogleMapImplementation
 //
-//  Created by Rashdan Natiq on 31/08/2017.
+//  Created by Syed Hasnain on 31/08/2017.
 //  Copyright © 2017 Devclan. All rights reserved.
 //
 
 import UIKit
 import GoogleMaps
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate { 
-    
+    // Outlets
+    @IBOutlet weak var startingView: UIView!
+    @IBOutlet weak var giftImageView: UIImageView!
     @IBOutlet weak var myMapView: GMSMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    var isButtonPressed = false
+    // User Define Variables
+    var isLocationButtonPressed = false
     var emailData: EMail!
+    var isEmailSend = false
     override func viewDidLoad() {
         super.viewDidLoad()
         LocationManager.shared.setMapBaseLocation(myMapView)
         LocationManager.shared.initializeTheLocationManager()
-        self.setButtonAlphaValue()
+        giftImageView.loadGif(name: "giphy")
+        setButtonCornerRadius()
+        self.emailServiceCheck()
+       
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        print("sned")
+        if isEmailSend == true {
+            AlertViewController.showEmailsendAlert(self)
+            isEmailSend = false
+        }
+    }
     // OutLet Functions
+    @IBAction func didTapGetStartButton(_ sender: Any) {
+        startingView.alpha = 0
+    }
     @IBAction func didTapShareButton(_ sender: UIButton) {
-        openCameraToTakePicture()
+        if isLocationButtonPressed == true {
+            AlertViewController.showCameraOpenAlert(self, completion: { (value) in
+                if value == 0 {
+                    self.openCameraToTakePicture()
+                    print("Camera Open")
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+        } else {
+            AlertViewController.showLocationButtonErrorAlert(self)
+        }
     }
     @IBAction func didTapCurrentLocationButton(_ sender: UIButton) {
-        switchButtonAlphaValue()
         if let location = LocationManager.shared.currentLocation {
-            isButtonPressed = false
+            isLocationButtonPressed = true
             self.myMapView.animate(toLocation: location.coordinate)
             LocationManager.shared.creatLocationMarker(myMapView)
             print("User Location : \(location)")
         }else {
-            isButtonPressed = true
+            isLocationButtonPressed = false
             LocationManager.shared.startUpdatingLocation()
         }
-    }
-    // User Define Functions
-    func setButtonAlphaValue() {
-        currentLocationButton.alpha = 1
-        shareButton.alpha = 0
-    }
-    func switchButtonAlphaValue() {
-        currentLocationButton.alpha = 0
-        shareButton.alpha = 1
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
@@ -59,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // Invoke Show Email Controller
             sendEmai(selectedImage: pickedImage)
         }else {
-            
+         AlertViewController.showImagePickerErrorAlert(self)
         }
     }
     func openCameraToTakePicture()  {
@@ -70,5 +88,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    func setButtonCornerRadius() {
+        currentLocationButton.layer.cornerRadius = 7
+        shareButton.layer.cornerRadius = 7
     }
 }
